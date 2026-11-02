@@ -1,0 +1,27 @@
+        </div>
+        <footer class="footer">
+            <span>&copy; <%= java.time.Year.now().getValue() %> chinito</span>
+        </footer>
+    </main>
+    </div>
+</div>
+
+<c:if test="${not empty sessionScope.flashMsg}">
+    <div id="flash" data-tipo="${sessionScope.flashTipo}" data-msg="${fn:escapeXml(sessionScope.flashMsg)}"></div>
+    <c:remove var="flashMsg" scope="session" />
+    <c:remove var="flashTipo" scope="session" />
+</c:if>
+
+<script src="${ctx}/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="${ctx}/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="${ctx}/assets/libs/jquery/jquery.min.js"></script>
+<script src="${ctx}/assets/libs/datatables/jquery.dataTables.min.js"></script>
+<script src="${ctx}/assets/libs/datatables/dataTables.bootstrap5.min.js"></script>
+<script src="${ctx}/assets/libs/datatables/dataTables.responsive.min.js"></script>
+<script src="${ctx}/assets/libs/datatables/responsive.bootstrap5.min.js"></script>
+<script src="${ctx}/assets/js/datatables-es.js"></script>
+<script src="${ctx}/assets/libs/sweetalert2/sweetalert2.all.min.js"></script>
+<script src="${ctx}/assets/js/app.js"></script>
+<script src="${ctx}/assets/js/navegacion-spa.js"></script>
+</body>
+</html>

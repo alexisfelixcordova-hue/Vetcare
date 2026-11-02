@@ -1,0 +1,88 @@
+/* Envoltorio estandar para cualquier listado: card + encabezado (titulo + acciones) + tabla. */
+.table-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    overflow: hidden;
+}
+
+.table-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.table-header h3,
+.table-header .card-header-tabla {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.card-header-tabla {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Tabla estandar de las listas: encabezado claro con flechas de orden (las agrega DataTables),
+   filas en cebra suave y resaltado al pasar el mouse. Usar en cualquier tabla nueva:
+   class="table table-hover align-middle tabla-plantilla". */
+.tabla-plantilla thead th {
+    background-color: var(--surface-hover);
+    color: var(--text-primary);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-bottom: 2px solid var(--border);
+    padding: .75rem 1rem;
+}
+
+.tabla-plantilla tbody td {
+    font-size: .85rem;
+    color: var(--text-secondary);
+    padding: .65rem 1rem;
+    vertical-align: middle;
+    border-color: var(--border);
+}
+
+.tabla-plantilla tbody tr:nth-child(even) {
+    background-color: var(--surface-hover);
+}
+
+.tabla-plantilla.table-hover tbody tr:hover > * {
+    background-color: var(--primary-soft);
+}
+
+/* Estado vacio: icono + titulo + texto de ayuda, para cuando una tabla no tiene registros. */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .35rem;
+    padding: 2.5rem 1rem;
+    text-align: center;
+}
+
+.empty-state i {
+    font-size: 2rem;
+    color: var(--text-muted);
+    opacity: .6;
+    margin-bottom: .25rem;
+}
+
+.empty-state-titulo {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.empty-state-texto {
+    font-size: .85rem;
+    color: var(--text-muted);
+    max-width: 320px;
+}

@@ -1,0 +1,81 @@
+/*
+   Sistema de diseño (UI Kit) - tokens visuales globales.
+   Todo el CSS de la plantilla (sidebar, navbar, cards, tablas, botones, etc.)
+   se apoya en estas variables. Cambiar un valor aqui actualiza toda la app.
+
+   El primario (#405189) es el mismo que ya trae bootstrap.min.css (--vz-primary)
+   y el que usa app.js para los botones de SweetAlert2: se mantiene ese valor para
+   que el kit nuevo y los componentes nativos de Bootstrap se vean como un solo
+   sistema, en vez de dos paletas distintas conviviendo en la misma pantalla.
+*/
+:root {
+    /* Marca y estados */
+    --primary: #405189;
+    --primary-hover: #34426e;
+    --primary-soft: #eef1f8;
+    --secondary: #64748b;
+    --secondary-soft: #eef0f2;
+    --success: #0ab39c;
+    --success-soft: #e6f7f5;
+    --warning: #f7b84b;
+    --warning-soft: #fef3e2;
+    --danger: #f06548;
+    --danger-soft: #fce9e6;
+    --info: #299cdb;
+    --info-soft: #e3f3fb;
+
+    /* Superficies */
+    --background: #f4f6fb;
+    --surface: #ffffff;
+    --surface-hover: #f8f9fb;
+
+    /* Texto */
+    --text-primary: #1e2130;
+    --text-secondary: #495057;
+    --text-muted: #878a99;
+
+    /* Bordes y radios */
+    --border: #e9ebec;
+    --radius-sm: .35rem;
+    --radius-md: .55rem;
+    --radius-lg: .9rem;
+
+    /* Sombras */
+    --shadow-sm: 0 1px 2px rgba(30, 32, 48, .06);
+    --shadow-md: 0 .5rem 1.25rem rgba(30, 32, 48, .07);
+    --shadow-lg: 0 .75rem 2rem rgba(30, 32, 48, .14);
+
+    /* Layout */
+    --sidebar-width: 260px;
+    --sidebar-collapsed-width: 78px;
+    --topbar-height: 70px;
+
+    /* Tipografia: Inter (vendorizada en fonts.css) con la misma pila de respaldo de antes,
+       por si el archivo tarda en cargar o el navegador no soporta @font-face. */
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    /* Movimiento */
+    --transition-fast: .15s ease;
+    --transition: .2s ease;
+}
+
+/* Modo oscuro: se activa agregando la clase "tema-oscuro" al <body> (ver menu.jspf).
+   Redefine las mismas variables de superficie/texto; el resto del kit no cambia. */
+body.tema-oscuro {
+    --background: #101322;
+    --surface: #171b2e;
+    --surface-hover: #1f2438;
+
+    --text-primary: #eef0f6;
+    --text-secondary: #c3c6d4;
+    --text-muted: #8b8fa3;
+
+    --border: #2a2f47;
+
+    --primary-soft: #232a4a;
+    --secondary-soft: #232840;
+    --success-soft: #123430;
+    --warning-soft: #3a2f16;
+    --danger-soft: #3a1e1c;
+    --info-soft: #12293a;
+}

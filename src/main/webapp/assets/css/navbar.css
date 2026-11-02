@@ -1,0 +1,76 @@
+/* La marca/logo vive ahora dentro del sidebar (ver .sidebar-brand en sidebar.css); esta topbar
+   solo lleva el boton de colapsar/hamburguesa a la izquierda y los iconos de accion a la
+   derecha. Sticky (no fixed): al no depender de un ancho calculado contra el sidebar, no hay
+   que reajustarla cuando este se colapsa o abre como overlay en movil. */
+.topbar {
+    position: sticky;
+    top: 0;
+    height: var(--topbar-height);
+    z-index: 1020;
+    box-shadow: var(--shadow-sm);
+    background-color: var(--surface) !important;
+    border-color: var(--border) !important;
+}
+
+/* Botones de icono de la topbar: toggle de menu, tema, pantalla completa, notificaciones */
+.topbar-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-md);
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    position: relative;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.topbar-icon-btn:hover {
+    background-color: var(--surface-hover);
+    color: var(--primary);
+}
+
+.topbar-icon-btn .fa-sun {
+    display: none;
+}
+
+body.tema-oscuro .topbar-icon-btn .fa-moon {
+    display: none;
+}
+
+body.tema-oscuro .topbar-icon-btn .fa-sun {
+    display: inline-block;
+}
+
+.topbar-badge-punto {
+    position: absolute;
+    top: 6px;
+    right: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--danger);
+    border: 2px solid var(--surface);
+}
+
+.topbar .dropdown-toggle::after {
+    color: var(--text-muted);
+}
+
+.notificaciones-menu {
+    width: 300px;
+    max-width: calc(100vw - 2rem);
+    padding: 0;
+    overflow: hidden;
+}
+
+.notificaciones-menu-header {
+    padding: .85rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: .875rem;
+}

@@ -1,0 +1,136 @@
+/*
+   Reskin de DataTables (dataTables.bootstrap5) para que se vea parte del mismo kit.
+   La integracion de Bootstrap5 ya renderiza el buscador y el selector de "registros por
+   pagina" con las clases form-control/form-select, y la paginacion con .pagination/.page-item/
+   .page-link: esas ya tienen estilo propio en forms.css y pagination.css, aqui solo se ajustan
+   las flechas de orden de las columnas y el espaciado alrededor de la tabla.
+*/
+div.dataTables_wrapper {
+    padding: 1.1rem 1.25rem;
+}
+
+/* Con autoWidth (por defecto en DataTables) la tabla se congela al ancho en pixeles que tenia
+   el contenedor justo al inicializarse, y no vuelve a crecer aunque el contenedor tenga mas
+   espacio despues (por eso la vista inicial dejaba un hueco en blanco a la derecha de la
+   tarjeta). Se desactiva autoWidth en el JS de cada listado y se fuerza aqui el 100%, para que
+   la tabla siempre ocupe todo el ancho disponible de su tarjeta, sin depender de ese calculo. */
+table.dataTable {
+    width: 100% !important;
+}
+
+div.dataTables_wrapper div.dataTables_length,
+div.dataTables_wrapper div.dataTables_filter,
+div.dataTables_wrapper div.dataTables_info {
+    color: var(--text-muted);
+    font-size: .8125rem;
+}
+
+/* El dom por defecto pone "Mostrar" y "Buscar" en columnas Bootstrap de 50/50
+   (dataTables_length/dataTables_filter van DENTRO de un div.col-md-6 cada una), asi que el
+   buscador queda a mitad de fila en vez de pegado al borde derecho de la tarjeta. Se pasa esa
+   fila a flex y se anula el ancho fijo de esas columnas (los hijos directos del row) para que
+   "Mostrar" quede pegado a la izquierda y "Buscar" pegado al borde derecho, igual que el boton
+   "Nuevo" o la columna "Accion" de la tabla. */
+div.dataTables_wrapper > div.row:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 1rem;
+}
+
+div.dataTables_wrapper > div.row:first-child > div {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    padding: 0;
+}
+
+div.dataTables_wrapper div.dataTables_length label,
+div.dataTables_wrapper div.dataTables_filter label {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+div.dataTables_wrapper div.dataTables_length select {
+    width: auto;
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+    width: 220px;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: .5rem;
+}
+
+div.dataTables_wrapper div.dataTables_paginate {
+    padding-top: 0;
+}
+
+/* Flechas de orden en el encabezado (columnas marcadas como orderable) */
+table.dataTable thead > tr > th.sorting,
+table.dataTable thead > tr > th.sorting_asc,
+table.dataTable thead > tr > th.sorting_desc {
+    cursor: pointer;
+    padding-right: 1.4rem;
+}
+
+table.dataTable thead > tr > th.sorting::before,
+table.dataTable thead > tr > th.sorting::after,
+table.dataTable thead > tr > th.sorting_asc::before,
+table.dataTable thead > tr > th.sorting_asc::after,
+table.dataTable thead > tr > th.sorting_desc::before,
+table.dataTable thead > tr > th.sorting_desc::after {
+    color: var(--text-muted);
+    opacity: .6;
+    right: .6rem;
+    bottom: .7rem;
+}
+
+table.dataTable thead > tr > th.sorting_asc::after,
+table.dataTable thead > tr > th.sorting_desc::before {
+    color: var(--primary);
+    opacity: 1;
+}
+
+/*
+   Extension "Responsive": en pantallas angostas oculta columnas y las muestra en una fila
+   expandible al tocar la flecha de la primera columna. El CSS que trae la extension solo
+   sabe pintarse oscuro con "html.dark" (una clase que este proyecto no usa); el tema oscuro
+   real se activa con "body.tema-oscuro" (ver menu.jspf), por eso se repite aqui con las
+   variables propias del kit.
+*/
+table.dataTable > tbody > tr > td.dtr-control::before {
+    color: var(--text-muted);
+    background: none;
+    box-shadow: none;
+    font-size: .7rem;
+}
+
+table.dataTable > tbody > tr.parent > td.dtr-control::before {
+    color: var(--primary);
+}
+
+table.dataTable > tbody > tr.child {
+    background-color: var(--surface-hover);
+}
+
+table.dataTable > tbody > tr.child:hover {
+    background-color: var(--surface-hover) !important;
+}
+
+table.dataTable > tbody > tr.child ul.dtr-details > li {
+    border-bottom-color: var(--border);
+    color: var(--text-secondary);
+    font-size: .85rem;
+}
+
+table.dataTable > tbody > tr.child span.dtr-title {
+    color: var(--text-primary);
+    min-width: 90px;
+}

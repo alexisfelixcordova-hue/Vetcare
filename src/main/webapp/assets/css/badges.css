@@ -1,0 +1,14 @@
+/* Badges "soft" (fondo pastel + texto de color), mas legibles que el .badge.bg-* solido de Bootstrap.
+   Uso: <span class="badge badge-success">Activo</span> */
+.badge {
+    font-weight: 600;
+    padding: .4em .65em;
+    border-radius: var(--radius-sm);
+}
+
+.badge-primary   { background: var(--primary-soft);   color: var(--primary); }
+.badge-secondary { background: var(--secondary-soft); color: var(--secondary); }
+.badge-success   { background: var(--success-soft);   color: var(--success); }
+.badge-danger    { background: var(--danger-soft);    color: var(--danger); }
+.badge-warning   { background: var(--warning-soft);   color: var(--warning); }
+.badge-info      { background: var(--info-soft);      color: var(--info); }

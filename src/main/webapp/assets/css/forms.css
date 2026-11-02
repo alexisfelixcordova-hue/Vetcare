@@ -1,0 +1,67 @@
+.form-label {
+    font-size: .8125rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: .35rem;
+}
+
+/*
+   El bootstrap.min.css de Velzon define .form-control con
+   "border: var(--vz-border-width) solid var(--vz-input-border-custom)": un shorthand
+   completo que depende de una variable que solo existe en el app.min.css propio de
+   Velzon (no incluido en este proyecto). Sin ella, el shorthand completo queda
+   invalido y el navegador lo trata como "border-style: none" -> no se ve ningun
+   borde, sin importar que se sobreescriba solo el color. Por eso aqui se define
+   "border" completo (ancho + estilo + color), no solo "border-color".
+*/
+.form-control,
+.form-select {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: .875rem;
+    background-color: var(--surface);
+    color: var(--text-primary);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 0 .2rem var(--primary-soft);
+    background-color: var(--surface);
+    color: var(--text-primary);
+}
+
+.form-help {
+    display: block;
+    margin-top: .3rem;
+    font-size: .75rem;
+    color: var(--text-muted);
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+    border: 1px solid var(--danger);
+}
+
+.form-control.is-valid,
+.form-select.is-valid {
+    border: 1px solid var(--success);
+}
+
+/* Mismo problema de shorthand invalido que .form-control, aplicado a checkbox/radio/switch
+   y al texto adosado a un input (.input-group-text): sin esto tampoco tendrian borde. */
+.form-check-input {
+    border: 1px solid var(--border);
+    background-color: var(--surface);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.input-group-text {
+    border: 1px solid var(--border);
+    background-color: var(--surface-hover);
+    color: var(--text-secondary);
+}

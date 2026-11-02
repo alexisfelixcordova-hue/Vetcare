@@ -1,0 +1,162 @@
+<div class="app-shell vet-shell">
+  <aside class="sidebar vet-sidebar" id="sidebar">
+
+    <div class="vet-brand">
+      <span class="brand-mark"><i class="fa-solid fa-paw"></i></span>
+      <span><b>VetCare</b><small>GESTIÓN VETERINARIA</small></span>
+    </div>
+
+    <div class="vet-clinic-chip">
+      <span class="clinic-status"></span>
+      <span><b>Clínica principal</b><small>Huancayo, Perú</small></span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+
+    <div class="vet-sidebar-scroll">
+      <div class="vet-side-label">MENÚ PRINCIPAL</div>
+
+      <nav class="vet-navigation">
+        <a href="${ctx}/dashboard"
+           class="vet-nav-link ${activo == 'dashboard' ? 'active' : ''}">
+          <i class="fa-solid fa-grid-2"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="${ctx}/citas"
+           class="vet-nav-link ${activo == 'citas' ? 'active' : ''}">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span>Citas</span>
+        </a>
+
+        <a href="${ctx}/mascota"
+           class="vet-nav-link ${activo == 'mascota' ? 'active' : ''}">
+          <i class="fa-solid fa-paw"></i>
+          <span>Mascota</span>
+        </a>
+
+        <a href="${ctx}/clientes"
+           class="vet-nav-link ${activo == 'clientes' ? 'active' : ''}">
+          <i class="fa-solid fa-users"></i>
+          <span>Clientes</span>
+        </a>
+
+        <a href="${ctx}/servicios"
+           class="vet-nav-link ${activo == 'servicios' ? 'active' : ''}">
+          <i class="fa-solid fa-stethoscope"></i>
+          <span>Servicios</span>
+        </a>
+
+        <a href="${ctx}/pagos"
+           class="vet-nav-link ${activo == 'pagos' ? 'active' : ''}">
+          <i class="fa-regular fa-credit-card"></i>
+          <span>Pagos</span>
+        </a>
+
+        <a href="${ctx}/historial"
+           class="vet-nav-link ${activo == 'historial' ? 'active' : ''}">
+          <i class="fa-solid fa-notes-medical"></i>
+          <span>Historial médico</span>
+        </a>
+
+        <a href="${ctx}/reportes"
+           class="vet-nav-link ${activo == 'reportes' ? 'active' : ''}">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Reportes</span>
+        </a>
+
+        <a href="${ctx}/productos"
+           class="vet-nav-link ${activo == 'productos' ? 'active' : ''}">
+          <i class="fa-solid fa-boxes-stacked"></i>
+          <span>Productos e inventario</span>
+        </a>
+      </nav>
+
+      <div class="vet-side-label side-label-lower">PREFERENCIAS</div>
+
+      <nav class="vet-navigation">
+        <a href="${ctx}/configuracion"
+           class="vet-nav-link ${activo == 'configuracion' ? 'active' : ''}">
+          <i class="fa-solid fa-gear"></i>
+          <span>Configuración</span>
+        </a>
+      </nav>
+
+      <div class="vet-sidebar-help">
+        <span class="help-illustration">🐾</span>
+        <b>¿Necesitas ayuda?</b>
+        <p>Estamos aquí para ayudarte a cuidar mejor.</p>
+        <a href="#help">Centro de ayuda <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="vet-sidebar-user">
+      <span class="user-avatar">VR</span>
+
+      <span class="user-meta">
+        <b><c:out value="${sessionScope.usuario.nombreCompleto}" default="Veterinario" /></b>
+        <small>Administrador</small>
+      </span>
+
+      <form method="post" action="${ctx}/logout" class="logout-form">
+        <input type="hidden" name="_csrf" value="${sessionScope.csrf}">
+        <button type="submit"
+                class="logout-icon logout-button"
+                title="Cerrar sesión"
+                aria-label="Cerrar sesión">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Cerrar sesión</span>
+        </button>
+      </form>
+    </div>
+
+  </aside>
+
+  <div class="main-wrapper vet-main">
+
+    <header class="vet-topbar">
+      <div class="topbar-left">
+        <button class="vet-mobile-menu" id="mobileMenu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div>
+          <div class="topbar-title" id="topbarTitle">
+            <c:choose>
+              <c:when test="${activo == 'mascota'}">Mascota</c:when>
+              <c:when test="${activo == 'productos'}">Productos e inventario</c:when>
+              <c:otherwise>Dashboard</c:otherwise>
+            </c:choose>
+          </div>
+
+          <div class="topbar-crumb" id="topbarCrumb">
+            <c:choose>
+              <c:when test="${activo == 'mascota'}">Registro animal de la clínica</c:when>
+              <c:when test="${activo == 'productos'}">Administración de productos y niveles de stock</c:when>
+              <c:otherwise>Resumen general de la clínica</c:otherwise>
+            </c:choose>
+          </div>
+        </div>
+      </div>
+
+      <div class="vet-top-actions">
+        <label class="vet-global-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input id="globalSearch" placeholder="Buscar en VetCare...">
+          <kbd>⌘ K</kbd>
+        </label>
+
+        <button class="vet-top-icon" title="Notificaciones">
+          <i class="fa-regular fa-bell"></i><span></span>
+        </button>
+
+        <div class="top-divider"></div>
+
+        <span class="top-date">
+          <i class="fa-regular fa-calendar"></i> 15 oct. 2026
+        </span>
+
+        <span class="user-avatar top-avatar">VR</span>
+      </div>
+    </header>
+
+    <main class="contenido vet-content">

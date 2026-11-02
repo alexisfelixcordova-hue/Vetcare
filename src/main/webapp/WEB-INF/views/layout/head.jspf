@@ -1,0 +1,33 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ taglib uri="jakarta.tags.functions" prefix="fn" %>
+<%@ taglib uri="jakarta.tags.fmt" prefix="fmt" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VetCare | Gestión Veterinaria</title>
+    <link rel="stylesheet" href="${ctx}/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${ctx}/assets/libs/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="${ctx}/assets/libs/simplebar/simplebar.min.css">
+    <link rel="stylesheet" href="${ctx}/assets/libs/datatables/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="${ctx}/assets/libs/datatables/responsive.bootstrap5.min.css">
+    <link rel="stylesheet" href="${ctx}/assets/css/app.css">
+</head>
+<body>
+<%-- Barra de progreso para la navegacion sin recarga (ver assets/js/navegacion-spa.js). Vive
+     fuera de .page-content a propósito: esa parte se reemplaza en cada navegación, esta no. --%>
+<div class="barra-carga" aria-hidden="true"></div>
+<script>
+    // Aplica el tema y el estado del sidebar guardados antes de pintar el resto de la pagina,
+    // para evitar un parpadeo (claro/oscuro, o expandido/colapsado). Solo lee localStorage:
+    // no depende de sesion ni servidor.
+    if (localStorage.getItem("tema") === "oscuro") {
+        document.body.classList.add("tema-oscuro");
+    }
+    if (localStorage.getItem("sidebarColapsado") === "1") {
+        document.body.classList.add("sidebar-colapsado");
+    }
+</script>

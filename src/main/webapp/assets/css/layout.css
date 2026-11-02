@@ -1,0 +1,58 @@
+/* Estructura general de toda pagina privada: sidebar fijo a la izquierda (ver sidebar.css)
+   + columna principal (.main-wrapper) con la topbar arriba y el contenido debajo.
+   Por debajo de 992px el sidebar es un overlay (no ocupa espacio en el layout), asi que
+   .main-wrapper no necesita margen y ocupa todo el ancho por si sola. */
+.app-shell {
+    min-height: 100vh;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 100vh;
+}
+
+.contenido {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    min-width: 0;
+    padding: 1.75rem !important;
+}
+
+.page-content {
+    flex: 1 0 auto;
+    margin-bottom: 1.75rem;
+}
+
+@media (max-width: 575.98px) {
+    .contenido {
+        padding: 1rem !important;
+    }
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding: 1rem 1.75rem;
+    margin-left: -1.75rem;
+    margin-right: -1.75rem;
+    margin-bottom: -1.75rem;
+    background-color: var(--surface);
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: .8125rem;
+}
+
+@media (max-width: 575.98px) {
+    .footer {
+        padding: 1rem;
+        margin-left: -1rem;
+        margin-right: -1rem;
+        margin-bottom: -1rem;
+    }
+}

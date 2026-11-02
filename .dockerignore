@@ -1,0 +1,6 @@
+target/*
+!target/*.war
+.idea
+*.iml
+.git
+.vscode

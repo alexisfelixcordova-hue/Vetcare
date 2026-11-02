@@ -1,0 +1,30 @@
+.card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background-color: var(--surface);
+    color: var(--text-secondary);
+}
+
+.card-header {
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+    background-color: transparent;
+}
+
+.card-footer {
+    border-top: 1px solid var(--border);
+    background-color: transparent;
+}
+
+.card-title {
+    color: var(--text-primary);
+}
+
+.card-hover {
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}

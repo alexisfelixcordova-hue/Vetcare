@@ -1,0 +1,42 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.kotlin
+
+### IntelliJ IDEA ###
+# Se excluye la carpeta completa (no solo algunos archivos): .idea/artifacts,
+# .idea/runConfigurations y .idea/misc.xml guardan rutas absolutas y artifacts
+# ligados a la máquina donde se abrió el proyecto. Si esta carpeta se comparte
+# entre máquinas, la siguiente persona hereda módulos y artifacts duplicados o
+# rotos (causa del error "Cannot build artifact ... circular dependency").
+# Cada máquina debe generar su propio .idea abriendo pom.xml como proyecto Maven.
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store

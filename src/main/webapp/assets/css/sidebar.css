@@ -1,0 +1,423 @@
+css
+    /*
+     * Sidebar VetCare
+     * - Escritorio: fijo a toda la altura de la ventana.
+     * - Móvil: conserva el comportamiento offcanvas de Bootstrap.
+     * - El contenido del menú puede desplazarse cuando no cabe.
+     * - El área de usuario y cerrar sesión permanecen accesibles.
+     */
+
+.sidebar.vet-sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    background-color: #2b2f3a;
+    border-color: var(--border) !important;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    overscroll-behavior-y: contain;
+}
+
+/* Marca superior */
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    height: var(--topbar-height);
+    min-height: var(--topbar-height);
+    padding: 0 1.25rem;
+    flex-shrink: 0;
+    background-color: var(--surface);
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition:
+            padding var(--transition),
+            background-color var(--transition),
+            color var(--transition);
+}
+
+.sidebar-brand:hover {
+    color: var(--text-primary);
+}
+
+.marca-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border-radius: var(--radius-md);
+    background-color: var(--primary);
+    color: #fff;
+    font-weight: 700;
+}
+
+.marca-texto {
+    min-width: 0;
+    overflow: hidden;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: .01em;
+    white-space: nowrap;
+}
+
+/* Títulos de sección */
+.sidebar-seccion {
+    display: block;
+    flex-shrink: 0;
+    padding: .9rem 1.25rem .4rem;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+/* Navegación */
+.sidebar .vet-navigation,
+.sidebar nav {
+    min-width: 0;
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    padding: .65rem .85rem;
+    margin: 0 .75rem .2rem;
+    font-size: .875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition:
+            background-color var(--transition-fast),
+            color var(--transition-fast);
+}
+
+.sidebar .nav-link i {
+    font-size: 1.05rem;
+    line-height: 1;
+    width: 1.35rem;
+    flex-shrink: 0;
+    text-align: center;
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+}
+
+.sidebar .nav-link:hover {
+    background-color: var(--surface-hover);
+    color: var(--primary);
+}
+
+.sidebar .nav-link:hover i {
+    color: var(--primary);
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--primary-soft);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.sidebar .nav-link.active i {
+    color: var(--primary);
+}
+
+/* Submenús */
+.sidebar .submenu-caret {
+    width: auto;
+    margin-left: auto;
+    font-size: .7rem;
+    transition: transform var(--transition-fast);
+}
+
+.sidebar .nav-link[aria-expanded="true"] .submenu-caret {
+    transform: rotate(180deg);
+}
+
+.sidebar .submenu {
+    padding-left: 1.35rem;
+}
+
+.sidebar .submenu .nav-link {
+    padding: .55rem .85rem;
+    font-size: .8125rem;
+    font-weight: 500;
+}
+
+/* Bloque de ayuda */
+.vet-sidebar-help {
+    flex-shrink: 0;
+    min-width: 0;
+}
+
+/* Área inferior del usuario y cierre de sesión */
+.vet-sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    flex-shrink: 0;
+    min-width: 0;
+    padding: .85rem 1rem;
+    border-top: 1px solid var(--border);
+    box-sizing: border-box;
+}
+
+.vet-sidebar-user .user-avatar {
+    flex-shrink: 0;
+}
+
+.vet-sidebar-user .user-meta {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.vet-sidebar-user .user-meta b,
+.vet-sidebar-user .user-meta small {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.vet-sidebar-user form {
+    flex: 0 0 auto;
+    min-width: 0;
+    margin: 0;
+}
+
+.vet-sidebar-user .logout-button,
+.vet-sidebar-user .logout-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    max-width: 100%;
+    padding: .55rem .65rem;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.vet-sidebar-user .logout-button:hover,
+.vet-sidebar-user .logout-icon:hover {
+    background-color: var(--surface-hover);
+    color: var(--primary);
+}
+
+.vet-sidebar-user .logout-button span {
+    display: inline;
+}
+
+/* Pie genérico, si lo utiliza otra parte del menú */
+.sidebar-footer {
+    flex-shrink: 0;
+    padding: .9rem 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.sidebar-footer .btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .6rem;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/*
+ * Escritorio.
+ * El sidebar ocupa la altura disponible y permite desplazarse
+ * cuando el contenido es mayor que la ventana.
+ */
+@media (min-width: 992px) {
+    .sidebar.offcanvas-lg,
+    .sidebar.vet-sidebar.offcanvas-lg {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        height: 100vh;
+        height: 100dvh;
+        z-index: 1031;
+        transform: none !important;
+        visibility: visible !important;
+        overflow-x: hidden;
+        overflow-y: auto;
+        box-sizing: border-box;
+        transition: width var(--transition);
+    }
+
+    .main-wrapper {
+        margin-left: var(--sidebar-width);
+        transition: margin-left var(--transition);
+    }
+
+    /* Sidebar contraído */
+    body.sidebar-colapsado .sidebar.offcanvas-lg {
+        width: var(--sidebar-collapsed-width);
+    }
+
+    body.sidebar-colapsado .main-wrapper {
+        margin-left: var(--sidebar-collapsed-width);
+    }
+
+    body.sidebar-colapsado .sidebar-brand {
+        justify-content: center;
+        padding: 0;
+    }
+
+    body.sidebar-colapsado .sidebar .marca-texto,
+    body.sidebar-colapsado .sidebar .sidebar-seccion,
+    body.sidebar-colapsado .sidebar .nav-link span,
+    body.sidebar-colapsado .sidebar-footer .btn span,
+    body.sidebar-colapsado .sidebar .submenu-caret {
+        display: none;
+    }
+
+    body.sidebar-colapsado .sidebar .nav-link {
+        justify-content: center;
+        margin-right: .5rem;
+        margin-left: .5rem;
+    }
+
+    body.sidebar-colapsado .sidebar .vet-sidebar-help {
+        display: none;
+    }
+
+    body.sidebar-colapsado .sidebar .vet-sidebar-user {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: .6rem .25rem;
+    }
+
+    body.sidebar-colapsado .sidebar .vet-sidebar-user .user-meta {
+        display: none;
+    }
+
+    body.sidebar-colapsado .sidebar .vet-sidebar-user .logout-button span {
+        display: none;
+    }
+
+    body.sidebar-colapsado .sidebar-footer .btn {
+        justify-content: center;
+    }
+
+    /*
+     * Submenú flotante del sidebar contraído.
+     * El JavaScript existente debe gestionar la clase
+     * .submenu-flotante-visible y las posiciones top/left.
+     */
+    body.sidebar-colapsado .sidebar .submenu-toggle + .collapse {
+        display: none !important;
+        position: fixed;
+        min-width: 190px;
+        padding: .4rem;
+        background-color: #2b2f3a;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-lg);
+        z-index: 1050;
+    }
+
+    body.sidebar-colapsado
+    .sidebar .submenu-toggle + .collapse.submenu-flotante-visible {
+        display: block !important;
+        height: auto !important;
+    }
+
+    body.sidebar-colapsado
+    .sidebar .submenu-toggle + .collapse .nav-link span {
+        display: inline !important;
+    }
+
+    body.sidebar-colapsado
+    .sidebar .submenu-toggle + .collapse .nav-link {
+        justify-content: flex-start;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    body.sidebar-colapsado
+    .sidebar .submenu-toggle + .collapse .submenu {
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .sidebar.vet-sidebar.offcanvas-lg {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        height: 100vh;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto !important;
+        overflow-x: hidden;
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .sidebar.vet-sidebar .vet-sidebar-help,
+    .sidebar.vet-sidebar .vet-sidebar-user {
+        flex-shrink: 0;
+    }
+
+    .sidebar.vet-sidebar .vet-sidebar-user {
+        padding-bottom: 1rem;
+    }
+}
+
+/* Estructura vertical del menú VetCare */
+.sidebar.vet-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Solo esta zona se desplaza */
+.vet-sidebar-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #737987 transparent;
+}
+
+/* Los bloques inferiores no deben encogerse */
+.vet-sidebar-help,
+.vet-sidebar-user {
+    flex: 0 0 auto;
+}
+
+/* En escritorio, el panel ocupa toda la altura */
+@media (min-width: 992px) {
+    .sidebar.vet-sidebar.offcanvas-lg {
+        position: fixed;
+        inset: 0 auto 0 0;
+        height: 100vh;
+        height: 100dvh;
+        transform: none !important;
+        visibility: visible !important;
+    }
+}

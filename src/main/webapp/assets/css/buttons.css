@@ -1,0 +1,109 @@
+.btn {
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    transition: filter var(--transition-fast), transform var(--transition-fast);
+}
+
+/* Color pedido para las acciones principales: botones "Nuevo"/"Guardar" y el ícono de editar. */
+.btn-primary {
+    --vz-btn-bg: #0c5ff6;
+    --vz-btn-border-color: #0c5ff6;
+    --vz-btn-hover-bg: #0a52d1;
+    --vz-btn-hover-border-color: #094aba;
+    --vz-btn-active-bg: #094aba;
+    --vz-btn-active-border-color: #0843a3;
+    --vz-btn-disabled-bg: #0c5ff6;
+    --vz-btn-disabled-border-color: #0c5ff6;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* El Bootstrap de este kit (Velzon) define --vz-secondary como azul (#3577f1), no gris, asi
+   que ".btn-outline-secondary" salia azul y competia visualmente con ".btn-primary" (ej. el
+   "Cancelar" de un modal se veia con el mismo peso que "Guardar", en vez de neutro). Se
+   redefinen aqui sus variables para que sea el gris neutro que "Cancelar"/acciones secundarias
+   necesitan en cualquier tema. */
+.btn-outline-secondary {
+    --vz-btn-color: var(--text-secondary);
+    --vz-btn-border-color: var(--border);
+    --vz-btn-hover-color: var(--text-primary);
+    --vz-btn-hover-bg: var(--surface-hover);
+    --vz-btn-hover-border-color: var(--border);
+    --vz-btn-active-color: var(--text-primary);
+    --vz-btn-active-bg: var(--surface-hover);
+    --vz-btn-active-border-color: var(--border);
+    --vz-btn-focus-shadow-rgb: 100, 116, 139;
+}
+
+/* Boton cuadrado solo-icono: usado ya en las acciones de las tablas (editar/eliminar). */
+.btn-icon,
+.btn-accion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+/*
+   Variantes de color para botones de accion en tablas (editar, eliminar, ver, activar...).
+   Fondo suave por defecto -> no satura una fila con varios botones y deja que la mirada
+   se enfoque en los datos, no en los controles. En hover se vuelve solido: da una senal
+   clara antes del clic, lo que importa especialmente en una accion destructiva como
+   eliminar (el usuario "ve" el rojo fuerte un instante antes de confirmar).
+   Mismos colores que las badges (badge-primary/success/warning/danger/info), para que
+   una misma accion siempre se lea con el mismo color en toda la app.
+   Uso: class="btn btn-accion btn-accion-primary" / "btn-accion-danger" / etc.
+*/
+.btn-accion-primary { background-color: rgba(12, 95, 246, .12); color: #0c5ff6; }
+.btn-accion-primary:hover, .btn-accion-primary:focus { background-color: #0c5ff6; color: #fff; }
+
+.btn-accion-info { background-color: var(--info-soft); color: var(--info); }
+.btn-accion-info:hover, .btn-accion-info:focus { background-color: var(--info); color: #fff; }
+
+.btn-accion-success { background-color: var(--success-soft); color: var(--success); }
+.btn-accion-success:hover, .btn-accion-success:focus { background-color: var(--success); color: #fff; }
+
+.btn-accion-warning { background-color: var(--warning-soft); color: var(--warning); }
+.btn-accion-warning:hover, .btn-accion-warning:focus { background-color: var(--warning); color: #1e2130; }
+
+.btn-accion-danger { background-color: var(--danger-soft); color: var(--danger); }
+.btn-accion-danger:hover, .btn-accion-danger:focus { background-color: var(--danger); color: #fff; }
+
+/* Estado de carga: agregar esta clase oculta el texto y muestra un spinner,
+   sin necesidad de tocar el markup ni el texto del boton. */
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+}
+
+.btn-loading::after {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 50%;
+    left: 50%;
+    margin: -.5rem 0 0 -.5rem;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: btn-loading-spin .6s linear infinite;
+}
+
+.btn-outline-primary.btn-loading::after,
+.btn-light.btn-loading::after {
+    border-color: rgba(64, 81, 137, .35);
+    border-top-color: var(--primary);
+}
+
+@keyframes btn-loading-spin {
+    to { transform: rotate(360deg); }
+}

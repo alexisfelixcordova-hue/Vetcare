@@ -1,0 +1,26 @@
+.pagination {
+    gap: .25rem;
+}
+
+.page-link {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: .8125rem;
+    background-color: var(--surface);
+}
+
+.page-item.active .page-link {
+    background-color: #0c5ff6;
+    border-color: #0c5ff6;
+}
+
+.page-link:hover {
+    background-color: rgba(12, 95, 246, .12);
+    color: #0c5ff6;
+}
+
+.page-item.disabled .page-link {
+    color: var(--text-muted);
+    background-color: var(--surface);
+}

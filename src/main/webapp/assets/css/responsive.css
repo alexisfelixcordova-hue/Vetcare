@@ -1,0 +1,51 @@
+@media (max-width: 767.98px) {
+    .page-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .table-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* En tablet/movil, "Mostrar X por pagina" y "Buscar" (los agrega DataTables) se apilan
+       en vez de ir uno al lado del otro, para no forzar scroll horizontal en la tarjeta. */
+    div.dataTables_wrapper > div.row:first-child {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .5rem;
+    }
+
+    div.dataTables_wrapper div.dataTables_filter input {
+        width: 100%;
+    }
+
+    /* Igual con "Mostrando de X a Y..." y la paginacion, para que no queden apretadas. */
+    div.dataTables_wrapper > div.row:last-child {
+        text-align: center;
+    }
+
+    div.dataTables_wrapper div.dataTables_paginate {
+        margin-top: .5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .card-stat-valor {
+        font-size: 1.35rem;
+    }
+
+    /* Botones de accion (editar/eliminar en tablas) un poco mas grandes en pantallas tactiles,
+       para que sean faciles de tocar con el dedo sin achicar la fila en desktop. */
+    .btn-accion {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* Menos espacio entre los iconos de la topbar cuando la pantalla es muy angosta. */
+    .topbar {
+        padding-left: .75rem !important;
+        padding-right: .75rem !important;
+    }
+}

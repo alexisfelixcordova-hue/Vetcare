@@ -1,0 +1,61 @@
+/* Tarjetas estadisticas del dashboard: icono + numero grande + etiqueta + barra de acento.
+   Variantes de color: card-stat--primary / --success / --warning / --danger / --info */
+.card-stat {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card-stat:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-stat-icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+}
+
+.card-stat-valor {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.card-stat-etiqueta {
+    font-size: .8125rem;
+    color: var(--text-muted);
+}
+
+/* Barra de acento decorativa: no representa un porcentaje real, es solo un detalle visual */
+.card-stat-acento {
+    height: 4px;
+    width: 100%;
+    background-color: var(--border);
+}
+
+.card-stat-acento span {
+    display: block;
+    height: 100%;
+    width: 55%;
+    border-radius: 0 4px 4px 0;
+}
+
+.card-stat--primary .card-stat-icono { background: var(--primary-soft); color: var(--primary); }
+.card-stat--success .card-stat-icono { background: var(--success-soft); color: var(--success); }
+.card-stat--warning .card-stat-icono { background: var(--warning-soft); color: var(--warning); }
+.card-stat--danger  .card-stat-icono { background: var(--danger-soft);  color: var(--danger); }
+.card-stat--info    .card-stat-icono { background: var(--info-soft);    color: var(--info); }
+
+.card-stat--primary .card-stat-acento span { background-color: var(--primary); }
+.card-stat--success .card-stat-acento span { background-color: var(--success); }
+.card-stat--warning .card-stat-acento span { background-color: var(--warning); }
+.card-stat--danger  .card-stat-acento span { background-color: var(--danger); }
+.card-stat--info    .card-stat-acento span { background-color: var(--info); }

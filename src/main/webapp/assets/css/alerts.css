@@ -1,0 +1,17 @@
+.alert {
+    border: none;
+    border-left: 4px solid transparent;
+    border-radius: var(--radius-md);
+}
+
+.alert-success { border-left-color: var(--success); }
+.alert-danger  { border-left-color: var(--danger); }
+.alert-warning { border-left-color: var(--warning); }
+.alert-info    { border-left-color: var(--info); }
+
+/* Componente .toast nativo de Bootstrap, por si se usa mas adelante ademas de SweetAlert2. */
+.toast {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
