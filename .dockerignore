@@ -1,6 +1,6 @@
-target/*
-!target/*.war
-.idea
+target/
+.idea/
+.git/
+.smarttomcat/
+.vscode/
 *.iml
-.git
-.vscode
